@@ -1,16 +1,21 @@
 const mongoose = require('mongoose');
 
 const fileSchema = new mongoose.Schema({
-    filename:{
+    path:{
         type:String,
-        required:true
+        required:[true, "Path is required"]
     },
     originalname:{
         type:String,
-        required:true
+        required:[true, "Original name is required"]
     },
-    
-
-
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'users',
+        required:[ true, "User is required"]
+    }
 
 })
+
+const file = mongoose.model('file',fileSchema);
+module.exports = file;
