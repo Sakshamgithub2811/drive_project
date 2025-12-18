@@ -9,9 +9,9 @@ router.get('/test',(req,res)=>{
     res.send('user test route');
 });
 
-// router.get('/register',(req,res)=>{
-//     res.render('register');
-// })
+router.get('/register',(req,res)=>{
+    res.render('register');
+})
 
 router.post('/register',
     body('username').trim().isLength({min:3}),
@@ -37,9 +37,9 @@ router.post('/register',
         console.log('Hello_1');
 });
 
-// router.get('/login',async(req,res)=>{
-//     res.render('login');
-// });
+router.get('/login',async(req,res)=>{
+    res.render('login');
+});
 
 router.post('/login',
     body('username').trim().isLength({min:3}),
